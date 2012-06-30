@@ -1,0 +1,107 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: #0b1b35;
+
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+a {
+	color: #b5e3fb;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+#bg {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: -999;
+}
+
+#content {
+	width: 802px;
+	margin: auto;
+	padding: 0;
+}
+
+#list {
+	margin: 0;
+	padding: 0;
+}
+
+#list a {
+	color: white;
+}
+
+#list li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	border: 1px solid #BBB;
+
+	margin-bottom: 30px;
+
+	-moz-box-shadow: 5px 5px 10px #000;
+	-webkit-box-shadow: 5px 5px 10px #000;
+	box-shadow: 5px 5px 10px #000;
+}
+
+#list li .title {
+	height: 200px;
+}
+
+#list li .title .img {
+	z-index: -100;
+	border: 0;
+}
+
+#list li .title .bg {
+	position: absolute;
+	width: 800px;
+	height: 50px;
+
+	margin-top: -65px;
+	z-index: 100;
+}
+
+#list li .title h2 {
+	position: absolute;
+	margin-left: 20px;
+	margin-top: -53px;
+	z-index: 200;
+}
+
+.tiny {
+	height: 80px;
+}
+
+.tiny .img {
+	height: 80px;
+	width: 320px;
+}
+
+.tiny h2 {
+	margin-left: 340px !important;
+}
+
+.tiny .bg {
+	width: 480px !important;
+	height: 80px !important;
+	margin-top: 0px !important;
+}
+
+.tiny.right .img {
+	margin-left: 480px;
+}
+.tiny.right h2 {
+	margin-left: 20px !important;
+}
+.tiny.right .bg {
+	margin-left: 0 !important;
+	margin-top: -84px !important;
+}
