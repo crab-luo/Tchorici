@@ -1,0 +1,30 @@
+{% load compress %}
+<!doctype HTML>
+
+<html>
+	<head>
+		<meta charset=utf-8>
+
+		<meta name="author" content="Juda Kaleta <juda.kaleta@gmail.com>">
+		<meta content="index, follow" name="robots">
+		<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+		{% compress css %}
+		<link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css">
+		{% endcompress %}
+
+ 		<script src="{{ STATIC_URL }}js/jquery.js"></script>
+
+		{% compress js %}
+ 			<script src="{{ STATIC_URL }}js/background.js"></script>
+		{% endcompress %}
+
+
+		<title></title>
+	</head>
+
+	<body>
+		<img src="images/backgrounds/bg800.jpg" id="bg" alt="">
+	</body>
+</html>
+
