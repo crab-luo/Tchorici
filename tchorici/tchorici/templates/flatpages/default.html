@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="list">
+		<div class="item">
+			<div class="title">
+				<img class="img" src="{{ STATIC_URL }}images/titles/fire.jpg" alt="">
+				<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
+				<h2>{{ flatpage.title }}</h2>
+			</div>
+		</div>
+	</div>
+	<div class="block wide">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="list">
+	<div class="item">
+		<div class="title">
+			<img class="img" src="{{ event.photo.url }}" alt="">
+			<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
+			<h2>{{ event.name }}</h2>
+		</div>
+	</div>
+
+	<div class="left">
+		<div class="block">
+			<h3>Účastníci</h3>
+			{% for person in event.people.all %}
+				<img src="{{ person.photo.url }}" alt="{{ person.first_name }}" title="{{ person.first_name }}" class="avatar small">
+			{% endfor %}
+		</div>
+
+		{% if event.description %}
+			<div class="block">
+				<h3 class="description">{{ event.description }}</h3>
+			</div>
+		{% endif %}
+	</div>
+
+	<div class="right">
+		{% if articles %}
+			<div class="block">
+				<h3>Články</h3>
+				<ul class="links">
+					{% for link in articles %}
+						<li><a href="{{ link.url }}"><strong>{{ link.name }}</strong></a> ({{ link.description }})
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+		{% if photos %}
+			<div class="block">
+				<h3>Fotografie</h3>
+				<ul class="links">
+					{% for link in photos %}
+						<li><a href="{{ link.url }}"><strong>{{ link.name }}</strong></a> ({{ link.description }})
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+		{% if other %}
+			<div class="block">
+				<h3>Ostatní</h3>
+				<ul class="links">
+					{% for link in other %}
+						<li><a href="{{ link.url }}"><strong>{{ link.name }}</strong></a> ({{ link.description }})
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	</div>
+	</div>
+{% endblock %}

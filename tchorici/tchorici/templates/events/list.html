@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block content %}
+	<ul id="list">
+		{% for event in events %}
+			<li class="item">
+				<div class="title">
+					<a href="{% url 'detail' event.slug %}">
+						<img class="img" src="{{ event.photo.url }}" alt="">
+						<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
+
+						<h2>{{ event.name }}</h2>
+					</a>
+				</div>
+				<hr class="clear">
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

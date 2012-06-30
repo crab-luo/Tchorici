@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="list">
+		<div class="item">
+			<div class="title">
+				<img class="img" src="{{ STATIC_URL }}images/titles/sea.jpg" alt="">
+				<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
+				<h2>Seznam Tchořů</h2>
+			</div>
+		</div>
+	</div>
+
+	<div class="people">
+		{% for person in people %}
+			<div class="person">
+				<img src="{{ person.photo.url }}" alt="{{ person.first_name }}" title="{{ person.first_name }}" class="avatar">
+				<span class="name">{{ person.first_name }}</span>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
