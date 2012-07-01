@@ -7,7 +7,7 @@ class Person(models.Model):
 	first_name = models.CharField(max_length=20, verbose_name='Jméno', \
 		help_text='Jan, Jéňa, Jenda, Honza, Honzík? To je otázka. Každopádně se křestní jméno zobrazí na webu.')
 	last_name = models.CharField(max_length=30, verbose_name='Příjmení', \
-		help_text='Příjmení už se na webu zobrazovat nebude, slouží pouze k rozlišení osob')
+		help_text='Z příjmení se na webu zobrazí pouze první písmeno, žádné strachy.')
 
 	photo = models.ImageField(upload_to='photos/', verbose_name='Fotka', \
 		help_text='Fotka musí mít čtvercové rozměry. Bude zmenšena na velikost 100x100.')

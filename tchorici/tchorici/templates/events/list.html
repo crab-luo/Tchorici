@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load url from future %}
 
+{% block title %}{% endblock %}
+
+{% block description %}
+Webová prezentace dobrodružného spolku Tchoříci. Seznam expedic, fotografie, vyprování...
+{% endblock %}
+
 {% block content %}
 	<ul id="list">
 		{% for event in events %}

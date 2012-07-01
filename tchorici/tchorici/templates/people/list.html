@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block title %}
+ - seznam Tchořů
+{% endblock %}
+
+{% block description %}
+Seznam všech Tchoříků se jménem a fotkou.
+{% endblock %}
+
 {% block content %}
 	<div id="list">
 		<div class="item">
@@ -15,7 +23,7 @@
 		{% for person in people %}
 			<div class="person">
 				<img src="{{ person.photo.url }}" alt="{{ person.first_name }}" title="{{ person.first_name }}" class="avatar">
-				<span class="name">{{ person.first_name }}</span>
+				<span class="name">{{ person.first_name }} {{ person.last_name|slice:"1" }}. </span>
 			</div>
 		{% endfor %}
 	</div>
