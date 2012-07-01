@@ -58,5 +58,7 @@ class Link(models.Model):
 	type = models.CharField(max_length=7, choices=TYPES, verbose_name='Typ')
 
 	class Meta:
+		ordering = ['name', 'description']
+
 		verbose_name = 'Odkaz'
 		verbose_name_plural = 'Odkazy'
