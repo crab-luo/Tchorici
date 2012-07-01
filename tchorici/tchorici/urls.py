@@ -27,6 +27,8 @@ urlpatterns = patterns('',
 	url(r'^akce/(?P<slug>[^/]+)\.html', 'events.views.detail', name='detail'),
 	url(r'^tchori/$', 'people.views.list'),
 
+	url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'}),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
