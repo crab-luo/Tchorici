@@ -123,6 +123,11 @@ h4 {
 	left: 26px;
 }
 
+.title img, .title a img {
+	border: 0;
+}
+
+
 .item .inner {
 	padding: 10px 20px;
 }
