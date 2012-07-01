@@ -8,8 +8,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
-handler404 = 'tchorici.views.error404'
-handler500 = 'tchorici.views.error500'
+#handler404 = 'tchorici.views.error404'
+#handler500 = 'tchorici.views.error500'
 
 urlpatterns = patterns('',
 	# Examples:

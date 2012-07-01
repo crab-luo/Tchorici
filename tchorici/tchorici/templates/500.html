@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+ - interní chyba
+{% endblock %}
+
+{% block description %}
+Interní chyba serveru.
+{% endblock %}
+
+{% block content %}
+	<div id="list">
+		<div class="item">
+			<div class="title">
+				<img class="img" src="{{ STATIC_URL }}images/titles/noway.jpg" alt="">
+				<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
+				<h2>Interní chyba serveru</h2>
+			</div>
+		</div>
+	</div>
+	<div class="block wide">
+		Bylo nám zasláno hlášení o chybě. Pokusíme se ji co nejdříve opravit.
+	</div>
+{% endblock %}
