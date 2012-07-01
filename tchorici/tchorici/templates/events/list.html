@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load url from future %}
+{% load numrange %}
 
 {% block title %}{% endblock %}
 
@@ -23,4 +24,16 @@ Webová prezentace dobrodružného spolku Tchoříci. Seznam expedic, fotografie
 			</li>
 		{% endfor %}
 	</ul>
+
+	<div class="pagination">
+		<ul>
+			{% for i in events.paginator.num_pages|numrange %}
+				<li><a
+				{% ifequal i|add:1 events.number %}class="current"{% endifequal %}
+				href="{% url 'events.views.list' i|add:1 %}">{{ i|add:1 }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+
+
 {% endblock %}

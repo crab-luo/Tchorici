@@ -211,3 +211,37 @@ h4 {
 	margin-left: 1px;
 	text-align: center;
 }
+
+.pagination {
+	width: 800px;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.pagination ul {
+	margin: 0;
+	padding: 0;
+}
+
+.pagination li {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pagination a {
+	display: inline-block;
+	padding: 5px 10px;
+
+	background: url("{{ STATIC_URL }}images/black.png");
+	border: 1px solid #BBB;
+
+	text-decoration: none;
+	color: white;
+}
+
+.pagination a:hover, .pagination .current {
+	background: #0b1b35;
+	color: #b5e3fb;
+}

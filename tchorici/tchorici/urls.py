@@ -23,6 +23,7 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
 
 	url(r'^$', 'events.views.list', name='list'),
+	url(r'^seznam/(?P<page>[0-9]+)/$', 'events.views.list'),
 	url(r'^akce/(?P<slug>[^/]+)\.html', 'events.views.detail', name='detail'),
 	url(r'^tchori/$', 'people.views.list'),
 
