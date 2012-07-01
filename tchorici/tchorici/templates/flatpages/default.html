@@ -4,6 +4,10 @@
  - {{ flatpage.title }}
 {% endblock %}
 
+{% block description %}
+{{ flatpage.content|striptags|truncatechars:100 }}
+{% endblock %}
+
 {% block content %}
 	<div id="list">
 		<div class="item">
