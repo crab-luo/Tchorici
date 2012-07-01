@@ -11,11 +11,11 @@ TYPES = (
 
 class Event(models.Model):
 	slug = models.SlugField(verbose_name='Adresa', editable=False, unique=True)
-	name = models.CharField(max_length=30, verbose_name='Název', \
+	name = models.CharField(max_length=50, verbose_name='Název', \
 		help_text='Pokuste se do názvu zahrnout co nejvíce informací. Ideální ' + \
 				'tvar je "Název, Místo Rok" (např. "NP Sarek, Švédsko 2012")')
 	description = models.CharField(max_length=200, verbose_name='Popis', blank=True, \
-		help_text='Popis není povinné vyplňovat, ale určitě to není na škodu. Zvláště u důležitějších akcí.' + \
+		help_text='Popis není povinné vyplňovat, ale určitě to není na škodu. Zvláště u důležitějších akcí. ' + \
 				'Měl by ale být stručný. Maximum je 200 znaků.')
 
 	photo = models.ImageField(upload_to='events/', verbose_name='Fotografie', \
@@ -51,7 +51,7 @@ class Link(models.Model):
 
 	url = models.URLField(primary_key=True, verbose_name='Adresa', \
 		help_text='Adresa odkazovaného zdroje. Je dobré využívat takové zdroje, které během pár týdnů nepřestanou existovat')
-	name = models.CharField(max_length=20, verbose_name='Název', \
+	name = models.CharField(max_length=35, verbose_name='Název', \
 		help_text='Název by měl obsahovat hlavně název serveru, na který odkaz vede.')
 	description = models.CharField(max_length=100, verbose_name='Popis', blank=True, \
 		help_text='Popisek by pak měl podat informaci o tom, co se v odkazu dá najít')
