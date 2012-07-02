@@ -7,8 +7,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def list(request, page=1):
 	events_list = Event.objects.all().order_by('-date_start')
-
-	print page
 	paginator = Paginator(events_list, 4)
 
 	try:
@@ -17,8 +15,6 @@ def list(request, page=1):
 		events = paginator.page(1)
 	except EmptyPage:
 		events = paginator.page(paginator.num_pages)
-
-	print events
 
 	return render(request, 'events/list.html', {'events': events})
 
