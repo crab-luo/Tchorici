@@ -7,6 +7,8 @@ ADMINS = (
 	('Juda Kaleta', 'juda.kaleta@gmail.com'),
 )
 
+SERVER_EMAIL = 'django@tchorici.cz'
+
 MANAGERS = ADMINS
 
 DATABASES = {
