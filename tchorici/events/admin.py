@@ -13,7 +13,7 @@ from django import forms
 class EventForm(forms.ModelForm):
 	people = forms.ModelMultipleChoiceField(
 		Person.objects.all(),
-		widget=FilteredSelectMultiple("Účastníci", False, attrs={'rows': '10'})
+		widget=FilteredSelectMultiple("Ucastnici", False, attrs={'rows': '10'})
 	)
 
 	class Meta:
