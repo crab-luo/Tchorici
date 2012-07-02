@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def list(request, page=1):
 	events_list = Event.objects.all().order_by('-date_start')
-	paginator = Paginator(events_list, 4)
+	paginator = Paginator(events_list, 3)
 
 	try:
 		events = paginator.page(page)
