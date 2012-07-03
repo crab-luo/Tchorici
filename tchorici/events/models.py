@@ -2,6 +2,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
+from django.contrib.sitemaps import ping_google
 
 TYPES = (
 	('article', 'Článek'),
@@ -38,6 +39,12 @@ class Event(models.Model):
 		if not self.id:
 			super(Event, self).save()
 		self.slug = slugify(str(self.id) + ' ' + self.name)
+
+		try:
+			ping_google()
+		except Exception:
+			pass
+
 		super(Event, self).save()
 
 	def get_absolute_url(self):
