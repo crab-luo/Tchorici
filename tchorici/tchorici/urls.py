@@ -4,6 +4,8 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 
+from sitemaps import sitemaps
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -21,6 +23,8 @@ urlpatterns = patterns('',
 
 	# Uncomment the next line to enable the admin:
 	url(r'^admin/', include(admin.site.urls)),
+
+	url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 
 	url(r'^$', 'events.views.list', name='list'),
 	url(r'^seznam/(?P<page>[0-9]+)/$', 'events.views.list'),

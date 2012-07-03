@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.core.urlresolvers import reverse
 
 TYPES = (
 	('article', 'Článek'),
@@ -38,6 +39,9 @@ class Event(models.Model):
 			super(Event, self).save()
 		self.slug = slugify(str(self.id) + ' ' + self.name)
 		super(Event, self).save()
+
+	def get_absolute_url(self):
+		return reverse('events.views.detail', args=[self.slug])
 
 	class Meta:
 		ordering = ['-date_start', 'name']
