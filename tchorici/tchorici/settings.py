@@ -101,7 +101,9 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+	'django.middleware.cache.UpdateCacheMiddleware',
 	'django.middleware.common.CommonMiddleware',
+	'django.middleware.cache.FetchFromCacheMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 	'django.middleware.csrf.CsrfViewMiddleware',
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -154,6 +156,13 @@ INSTALLED_APPS = (
 	'people',
 	'events',
 )
+
+CACHES = {
+	'default': {
+		'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+	}
+}
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
