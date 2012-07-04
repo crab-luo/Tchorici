@@ -8,15 +8,14 @@
 
 		<meta name="author" content="Juda Kaleta <juda.kaleta@gmail.com>">
 		<meta content="index, follow" name="robots">
-		<meta http-equiv="Content-Script-Type" content="text/javascript">
 
 		{% compress css %}
 		<link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css">
 		{% endcompress %}
 
 		{% compress js %}
- 			<script src="{{ STATIC_URL }}js/jquery.js"></script>
- 			<script src="{{ STATIC_URL }}js/background.js"></script>
+ 			<script src="{{ STATIC_URL }}js/jquery.js" type="text/javascript"></script>
+ 			<script src="{{ STATIC_URL }}js/background.js" type="text/javascript"></script>
 		{% endcompress %}
 
 
