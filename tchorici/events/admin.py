@@ -16,6 +16,16 @@ class EventForm(forms.ModelForm):
 		widget=FilteredSelectMultiple("Ucastnici", False, attrs={'rows': '10'})
 	)
 
+	def clean_photo(self):
+		from django.core.files.images import get_image_dimensions
+		p = get_image_dimensions(self.cleaned_data['photo'])
+		width, height = p
+
+		if width / height != 4:
+			raise forms.ValidationError('Fotografie musí být v poměru 4:1')
+
+		return self.cleaned_data['photo']
+
 	class Meta:
 		model = Event
 

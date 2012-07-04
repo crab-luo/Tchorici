@@ -36,9 +36,14 @@ class Event(models.Model):
 	admin_photo.allow_tags = True
 
 	def save(self):
-		if not self.id:
-			super(Event, self).save()
+		super(Event, self).save()
 		self.slug = slugify(str(self.id) + ' ' + self.name)
+
+		if self.photo.width != 800:
+			import Image
+			img = Image.open(self.photo.path)
+			img = img.resize((800, 200), Image.ANTIALIAS)
+			img.save(self.photo.path)
 
 		try:
 			ping_google()

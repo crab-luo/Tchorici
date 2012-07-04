@@ -21,6 +21,16 @@ class Person(models.Model):
 	admin_photo.short_description = 'Fotografie'
 	admin_photo.allow_tags = True
 
+	def save(self):
+		super(Person, self).save()
+
+		if self.photo.width != 100:
+			import Image
+			img = Image.open(self.photo.path)
+			img = img.resize((100, 100), Image.ANTIALIAS)
+			img.save(self.photo.path)
+
+
 	class Meta:
 		ordering = ['first_name', 'last_name']
 		unique_together = ('first_name', 'last_name')
