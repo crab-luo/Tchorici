@@ -2,10 +2,18 @@
 {% load url from future %}
 {% load numrange %}
 
-{% block title %}{% endblock %}
+{% block title %}
+	{% ifnotequal 1 events.number %}
+		- {{ events.number }}. strana ze seznamu expedic
+	{% endifnotequal %}
+{% endblock %}
 
 {% block description %}
-Webová prezentace dobrodružného spolku Tchoříci. Seznam expedic, fotografie, vypravování...
+	{% ifequal 1 events.number %}
+		Webová prezentace dobrodružného spolku Tchoříci. Seznam expedic, fotografie, vypravování...
+	{% else %}
+		{{ events.number }}. stránka ze seznamu našich dobrodružství.
+	{% endifequal %}
 {% endblock %}
 
 {% block content %}
