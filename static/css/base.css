@@ -176,6 +176,10 @@ h4 {
 	width: 750px;
 }
 
+.block.wide img {
+    max-width: 720px;
+}
+
 .left {
 	float: left;
 }

@@ -4,7 +4,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	('Juda Kaleta', 'juda.kaleta@gmail.com'),
+    ('Juda Kaleta', 'juda.kaleta@gmail.com'),
 )
 
 SERVER_EMAIL = 'django@tchorici.cz'
@@ -12,20 +12,26 @@ SERVER_EMAIL = 'django@tchorici.cz'
 MANAGERS = ADMINS
 
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': '/home/yetty/Work/Development/Tchorici/tchorici/database.sqlite',
-		'USER': '',
-		'PASSWORD': '',
-		'HOST': '',
-		'PORT': '',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/home/yetty/Work/Development/Tchorici/tchorici/database.sqlite',
+    },
+
+    'slave': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/home/yetty/Work/Development/Tchorici/tchorici/slave.sqlite',
+        'TEST_MIRROR': 'default',
+    }
 }
 
 
 APPEND_SLASH = True
 if not DEBUG:
-	PREPEND_WWW = True
+    PREPEND_WWW = True
+
+FIXTURE_DIRS = (
+    '/home/yetty/Work/Development/Tchorici/testdata/',
+)
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -75,19 +81,19 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-	# Put strings here, like "/home/html/static" or "C:/www/django/static".
-	# Always use forward slashes, even on Windows.
-	# Don't forget to use absolute paths, not relative paths.
-	'/home/yetty/Work/Development/Tchorici/static/',
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    '/home/yetty/Work/Development/Tchorici/static/',
 )
 
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
-	'django.contrib.staticfiles.finders.FileSystemFinder',
-	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-	#'django.contrib.staticfiles.finders.DefaultStorageFinder',
-	'compressor.finders.CompressorFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -95,22 +101,22 @@ SECRET_KEY = 'f06cgjr(xj+_owqtv@vu%u4-#blwu%rda*fe77ippgz3lu$j_b'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-#	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
-#	  'django.template.loaders.eggs.Loader',
+#   'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
-	'django.middleware.cache.UpdateCacheMiddleware',
-	'django.middleware.common.CommonMiddleware',
-	'django.middleware.cache.FetchFromCacheMiddleware',
-	'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.csrf.CsrfViewMiddleware',
-	'django.contrib.auth.middleware.AuthenticationMiddleware',
-	'django.contrib.messages.middleware.MessageMiddleware',
-	'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-	# Uncomment the next line for simple clickjacking protection:
-	# 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    # Uncomment the next line for simple clickjacking protection:
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'tchorici.urls'
@@ -119,9 +125,9 @@ ROOT_URLCONF = 'tchorici.urls'
 WSGI_APPLICATION = 'tchorici.wsgi.application'
 
 TEMPLATE_DIRS = (
-	# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-	# Always use forward slashes, even on Windows.
-	# Don't forget to use absolute paths, not relative paths.
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
 )
 
 COMPRESS_ENABLED = True
@@ -129,38 +135,41 @@ COMPRESS_OFFLINE = True
 COMPRESS_TEMPLATE_FILTER_CONTEXT = {'MEDIA_URL': MEDIA_URL, 'STATIC_URL': STATIC_URL}
 
 COMPRESS_CSS_FILTERS = [
-	'comptemp.TemplateFilter'
+    'comptemp.TemplateFilter'
 ]
 
 COMPRESS_JS_FILTERS = [
-	'compressor.filters.jsmin.JSMinFilter',
-	'comptemp.TemplateFilter'
+    'compressor.filters.jsmin.JSMinFilter',
+    'comptemp.TemplateFilter'
 ]
 
 INSTALLED_APPS = (
-	'django.contrib.auth',
-	'django.contrib.contenttypes',
-	'django.contrib.sessions',
-	'django.contrib.sites',
-	'django.contrib.messages',
-	'django.contrib.staticfiles',
-	'django.contrib.sitemaps',
-	# Uncomment the next line to enable the admin:
-	'django.contrib.admin',
-	# Uncomment the next line to enable admin documentation:
-	# 'django.contrib.admindocs',
-	'compressor',
-	'django.contrib.flatpages',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    # Uncomment the next line to enable the admin:
+    'django.contrib.admin',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
+    'compressor',
+    'django.contrib.flatpages',
 
-	'tchorici',
-	'people',
-	'events',
+    'sorl.thumbnail',
+    'imperavi',
+
+    'tchorici',
+    'people',
+    'events',
 )
 
 CACHES = {
-	'default': {
-		'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-	}
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
 }
 
 
@@ -170,25 +179,25 @@ CACHES = {
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
 LOGGING = {
-	'version': 1,
-	'disable_existing_loggers': False,
-	'filters': {
-		'require_debug_false': {
-			'()': 'django.utils.log.RequireDebugFalse'
-		}
-	},
-	'handlers': {
-		'mail_admins': {
-			'level': 'ERROR',
-			'filters': ['require_debug_false'],
-			'class': 'django.utils.log.AdminEmailHandler'
-		}
-	},
-	'loggers': {
-		'django.request': {
-			'handlers': ['mail_admins'],
-			'level': 'ERROR',
-			'propagate': True,
-		},
-	}
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
 }
