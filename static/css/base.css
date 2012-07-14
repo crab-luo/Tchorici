@@ -157,6 +157,7 @@ h4 {
 
 
 .links li {
+    margin-bottom: 10px;
 	list-style-type: lower-alpha;
 }
 
