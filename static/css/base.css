@@ -5,13 +5,15 @@ body {
 
 	color: white;
 	font-family: SegoeUI, Tahoma, Verdana, sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 hr.clear {
 	clear: both;
 	visibility: hidden;
 }
+
+
 
 a {
 	color: #b5e3fb;
@@ -21,6 +23,7 @@ p {
 	margin: 0 0 20px 0;
 	padding: 0;
 	text-indent: 1em;
+    font-size: 18px;
 }
 
 h1 a {
