@@ -31,7 +31,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'events.views.list', name='list'),
     url(r'^seznam/(?P<page>[0-9]+)/$', 'events.views.list'),
-    url(r'^akce/(?P<slug>[^/]+)\.html', 'events.views.detail', name='detail'),
+    url(r'^akce/(?P<id>\d+)-(?P<slug>[^/]+)\.html', 'events.views.detail', name='detail'),
     url(r'^tchori/$', 'people.views.list'),
 
     url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '/static/images/favicon.ico'}),

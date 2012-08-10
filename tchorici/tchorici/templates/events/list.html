@@ -21,7 +21,7 @@
 		{% for event in events %}
 			<li class="item">
 				<div class="title">
-					<a href="{% url 'detail' event.slug %}">
+					<a href="{{ event.get_absolute_url }}">
 						<img class="img" src="{{ event.photo.url }}" alt="">
 						<img src="{{ STATIC_URL }}images/black.png" alt="" class="bg">
 
