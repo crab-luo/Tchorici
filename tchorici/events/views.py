@@ -20,7 +20,7 @@ def list(request, page=1):
 
 
 def detail(request, id, slug):
-    event = Event.objects.get(slug=slug)
+    event = Event.objects.get(id=id)
     articles = Link.objects.filter(event=event, type='article').all()
     photos = Link.objects.filter(event=event, type='photos').all()
     other = Link.objects.filter(event=event, type='other').all()
