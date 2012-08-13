@@ -80,6 +80,9 @@ class Link(models.Model):
         help_text='Popisek by pak měl podat informaci o tom, co se v odkazu dá najít')
     type = models.CharField(max_length=7, choices=TYPES, verbose_name='Typ')
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         ordering = ['name', 'description']
 
