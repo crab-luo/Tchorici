@@ -161,6 +161,7 @@ INSTALLED_APPS = (
 
     'sorl.thumbnail',
     'imperavi',
+    'south',
 
     'tchorici',
     'people',

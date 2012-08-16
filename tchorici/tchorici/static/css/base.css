@@ -14,6 +14,9 @@ hr.clear {
 }
 
 
+.hidden {
+    display: none;
+}
 
 a {
 	color: #b5e3fb;

@@ -15,7 +15,9 @@ FIELD_DESCRIPTION = Event._meta.get_field('description')
 class EventForm(forms.ModelForm):
     people = forms.ModelMultipleChoiceField(
         Person.objects.all(),
-        widget=FilteredSelectMultiple('Ucastnici', False, attrs={'rows': '10'}),
+        widget=FilteredSelectMultiple(
+            'Ucastnici', False, attrs={'rows': '10'}
+        ),
     )
 
     description = forms.CharField(
@@ -46,7 +48,9 @@ class LinkInline(admin.TabularInline):
 
 class EventAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Základní popis', {'fields': ['name', 'description', 'photo']}),
+        ('Základní popis', {
+            'fields': ['name', 'description', 'location', 'photo']
+        }),
         ('Datum akce', {'fields': ['date_start', 'date_end']}),
         ('Účastníci', {'fields': ['people']}),
     ]
@@ -55,7 +59,7 @@ class EventAdmin(admin.ModelAdmin):
     filter_horizontal = ('people',)
     inlines = [LinkInline]
 
-    list_display = ('name', 'description', 'date_start', 'admin_photo')
+    list_display = ('name', 'description', 'date_start', 'admin_photo', 'admin_link_to_map')
     list_filter = ['date_start']
     date_hierarchy = 'date_start'
 
