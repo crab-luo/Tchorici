@@ -23,7 +23,7 @@ def detail(request, id, slug):
     event = Event.objects.get(id=id)
 
     if event.slug != slug:
-        return redirect(event)
+        return redirect(event, permanent=True)
 
     articles = Link.objects.filter(event=event, type='article').all()
     photos = Link.objects.filter(event=event, type='photos').all()
